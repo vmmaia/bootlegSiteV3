@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    color: white;
+}
+
+.logoLoading {
+    width: 250px;
+    position: fixed;
+    top: 75px;
+    left: calc(50vw - 125px);
+    z-index: 9;
+}
+
+.logoLoading > img {
+    width: 250px;
+}
+
+.logoLoaded {
+    width: 95px;
+    position: fixed;
+    top: -5px;
+    left: calc(50vw - 47px);
+    z-index: 9;
+
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+}
+
+.logoLoaded > img {
+    width: 95px;
+
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+}
+
+.bandListItem:hover {
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.headerBtn {
+    font-family: 'Arizonia';
+    font-size: 1.5rem !important;
+}
+
+.headerBtn:hover {
+    background-color: transparent !important;
+}
