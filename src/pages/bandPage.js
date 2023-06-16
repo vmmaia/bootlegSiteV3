@@ -26,7 +26,14 @@ const BandPage = () => {
 
     const loadShows = () => {
         setBandStats(bootlegsStore.stats[band]);
-        setShows(bootlegsStore.bootlegs.filter((s) => s.band.toLowerCase().replace(' ', '') === band));
+        const s = bootlegsStore.bootlegs.filter((s) => s.band.toLowerCase().replace(' ', '') === band);
+
+        if (s.length === 0) {
+            navigate('/');
+            return;
+        }
+
+        setShows(s);
         setLoading(false);
     };
 

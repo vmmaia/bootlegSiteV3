@@ -21,7 +21,8 @@ const TradersPage = () => {
             title: 'Website',
             dataIndex: 'website',
             key: 3,
-            render: (text) => (text !== null ? <a href={`http://${text}`}>Link</a> : '-'),
+            render: (text) =>
+                text !== null ? <a href={`${text.split('://')[0]}://${text.split('://')[1]}`}>Link</a> : '-',
         },
         {
             title: 'Email',

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import {
     Col,
@@ -35,6 +35,8 @@ const TradeabilityTag = (props) => {
 };
 
 const BootlegPage = () => {
+    const navigate = useNavigate();
+
     const bootlegStore = useSelector((store) => store.bootlegs);
     const { id } = useParams();
 
@@ -48,7 +50,15 @@ const BootlegPage = () => {
             : `${names[0].charAt(0)}${names[names.length - 1].charAt(0)}`.toUpperCase();
     };
 
-    return (
+    useEffect(() => {
+        if (!show) {
+            navigate('/');
+        }
+    }, []);
+
+    return !show ? (
+        <React.Fragment />
+    ) : (
         <Row justify={'center'}>
             <Col xs={24} lg={18}>
                 <TradeabilityTag rt={show.isRare} nft={show.notForTrade}>
