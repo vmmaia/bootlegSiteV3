@@ -74,7 +74,13 @@ const LandingPage = () => {
                                 or if you have something that I'd like.
                             </Typography.Paragraph>
                             <Typography.Title
-                                style={{ textAlign: 'right', margin: '0px', fontFamily: 'Arizonia', color: '#a20c23' }}
+                                style={{
+                                    textAlign: 'right',
+                                    margin: '0px',
+                                    fontFamily: 'Arizonia',
+                                    color: '#a20c23',
+                                    textShadow: '1px 1px 1px #000',
+                                }}
                             >
                                 Tafnwin
                             </Typography.Title>
