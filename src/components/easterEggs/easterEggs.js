@@ -18,19 +18,25 @@ const EasterEggs = () => {
         '12-31': 'kai', // Ghost Love Score - Drum Cam - Espoo 15
     };
 
-    const audio = new Audio(`/assets/ee/audio/ee_${birthdays[month + '-' + day]}.mp3`);
-    const audioReseter = audio.addEventListener('ended', () => (audioPlaying = false));
+    const birthday = birthdays[month + '-' + day];
+
+    const audio = birthday ? new Audio(`/assets/ee/audio/ee_${birthday}.mp3`) : undefined;
+    const audioReseter = audio ? audio.addEventListener('ended', () => (audioPlaying = false)) : undefined;
     let audioPlaying = false;
 
     useEffect(() => {
-        return () => audio.removeEventListener('ended', audioReseter);
+        return () => {
+            if (audio) {
+                audio.removeEventListener('ended', audioReseter);
+            }
+        };
     }, []);
 
     return (
         <div>
-            {birthdays[month + '-' + day] !== undefined ? (
+            {birthday !== undefined ? (
                 <img
-                    src={`/assets/ee/ee_${birthdays[month + '-' + day]}_bd.png`}
+                    src={`/assets/ee/ee_${birthday}_bd.png`}
                     alt="easter egg"
                     style={{
                         position: 'fixed',
